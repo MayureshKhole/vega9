@@ -54,8 +54,27 @@ const SearchPage = () => {
   return (
     <Container
       className="search-page mt-5"
-      style={{ maxHeight: "80vh", overflowY: "auto" }}
+      style={{
+        maxHeight: "80vh",
+        overflowY: "auto",
+        paddingTop: "60px", // Added extra space to top
+      }}
     >
+      {/* Name and Email Section using React-Bootstrap */}
+      <Row className="mb-4">
+        <Col xs={12}>
+          <div
+            style={{
+              fontSize: "14px",
+              color: "#333",
+            }}
+          >
+            <p>Mayuresh Khole</p>
+            <p>mbkhole@gmail.com</p>
+          </div>
+        </Col>
+      </Row>
+
       <h1 className="text-center mb-4">Search Images</h1>
 
       <Form className="mb-4">
@@ -82,12 +101,6 @@ const SearchPage = () => {
           {error}
         </Alert>
       )}
-      {/* 
-      {images.length === 0 && !loading && !error && query.trim() && (
-        <Alert variant="info" className="text-center">
-          No results found. Try searching for something else.
-        </Alert>
-      )} */}
 
       <Row className="g-4">
         {images.map((image) => (
