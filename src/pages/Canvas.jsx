@@ -297,7 +297,7 @@ const CanvasPage = () => {
                 />
               )}
               {elements.map((element) => (
-                <React.Fragment key={element.id}>
+                <>
                   {element.type === "text" && (
                     <Text
                       id={element.id}
@@ -345,7 +345,7 @@ const CanvasPage = () => {
                       onClick={() => handleSelect(element.id)}
                     />
                   )}
-                </React.Fragment>
+                </>
               ))}
               <Transformer ref={transformerRef} />
             </Layer>
