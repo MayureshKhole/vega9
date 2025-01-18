@@ -10,6 +10,7 @@ import {
   Alert,
   Card,
 } from "react-bootstrap";
+import config from "../config";
 
 const SearchPage = () => {
   const [query, setQuery] = useState("");
@@ -21,15 +22,14 @@ const SearchPage = () => {
   // Fetch images from Pixabay API
   const fetchImages = async () => {
     if (!query.trim()) return;
-
     setLoading(true);
     setError("");
 
     try {
       const response = await fetch(
-        `https://pixabay.com/api/?key=48287611-3ebaed0dd1d1bbfa2b5e36f0f&q=${encodeURIComponent(
-          query
-        )}&image_type=photo`
+        `https://pixabay.com/api/?key=${
+          config.pixabayKey
+        }&q=${encodeURIComponent(query)}&image_type=photo`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch images");
